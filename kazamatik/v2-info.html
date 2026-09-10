@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F4C5C">
+  <title>Kazamatik — Uygulama duyurusu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --paper: #fffdf8;
+      --ink: #1c2b2e;
+      --muted: #5c6b6e;
+      --teal: #0f4c5c;
+      --teal-deep: #0a3540;
+      --gold: #c4a35a;
+      --gold-soft: #ead9b0;
+      --green: #0d6e4f;
+      --green-hover: #0a5840;
+      --line: #e4d9c5;
+      --helallik: #f8f1e3;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Raleway, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #dcece8 0%, transparent 55%),
+        radial-gradient(900px 500px at 110% 0%, #ead9b0 0%, transparent 45%),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      min-height: 100vh;
+      padding: 28px 16px 48px;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header.hero {
+      background: linear-gradient(165deg, var(--teal) 0%, var(--teal-deep) 100%);
+      color: #f8f4ea;
+      border-radius: 24px;
+      padding: 36px 28px 32px;
+      box-shadow: 0 18px 40px rgba(15, 76, 92, 0.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header.hero::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -70px;
+      top: -70px;
+      border-radius: 50%;
+      background: rgba(196, 163, 90, 0.14);
+    }
+
+    .kicker {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: Lora, Georgia, serif;
+      font-size: clamp(1.7rem, 5vw, 2.25rem);
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: rgba(248, 244, 234, 0.88);
+      font-size: 1.02rem;
+      max-width: 36em;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 22px;
+      background: var(--gold);
+      color: #1c2b2e;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 22px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 200ms ease, transform 200ms ease;
+    }
+
+    .cta:hover { background: #d4b56a; transform: translateY(-1px); }
+    .cta:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+    .paper {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 18px;
+      box-shadow: 0 8px 24px rgba(28, 43, 46, 0.05);
+    }
+
+    h2 {
+      font-family: Lora, Georgia, serif;
+      font-size: 1.28rem;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    p { color: var(--muted); margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    .steps {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .steps li {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: start;
+      background: #f7f3ea;
+      border-radius: 14px;
+      padding: 14px 14px 14px 12px;
+    }
+
+    .num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+
+    .steps strong { color: var(--ink); display: block; font-size: 0.98rem; }
+    .steps span { color: var(--muted); font-size: 0.92rem; }
+
+    .helallik {
+      background: var(--helallik);
+      border-left: 4px solid var(--gold);
+      padding: 22px 20px;
+    }
+
+    .helallik p { color: var(--ink); }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .features li {
+      list-style: none;
+      background: #f7f3ea;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 0.92rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .note {
+      margin-top: 14px;
+      font-size: 0.92rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 520px) {
+      .features { grid-template-columns: 1fr; }
+      header.hero, .paper { padding: 24px 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cta { transition: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="kicker">Kaza Namazı ve Oruç Takip Uygulaması Yenilendi</p>
+      <h1>Yeni Uygulamamız: Kazamatik</h1>
+      <p>Yıllardır severek kullandığınız başucu uygulamanız artık KAZAMATİK adıyla devam ediyor. Eski uygulama zamanla yayından kalkacak; destek ve güncellemeler artık KAZAMATİK uygulamasından sürecektir.</p>
+      <a class="cta" href="https://play.google.com/store/apps/details?id=com.mekitech.kazamatik">
+        Google Play’den indir
+      </a>
+    </header>
+
+    <section class="paper">
+      <h2>Kazamatik’e geçince ne yapmalısınız?</h2>
+      <p>Eski kayıtlarınız otomatik taşınmaz ancak aşağıdaki adımları takip ederseniz kaybınız olmayacaktır:</p>
+      <ol class="steps">
+        <li>
+          <span class="num">1</span>
+          <div>
+            <strong>Yeniden Hesaplama Yapmadan Toplam Borcunuzu Girin</strong>
+            <span>Kazamatik’te “Borç Hesaplama” adımında “Kendim Hesapladım” seçeneğine tıklayarak önceki uygulamadaki toplam namaz ve oruç borçlarınızı ayrı ayrı girin.</span>
+          </div>
+        </li>
+        <li>
+          <span class="num">2</span>
+          <div>
+            <strong>Toplu ekleme yapın</strong>
+            <span>Kıldığınız namazları toplu şekilde tek seferde ekleyin. Bunun için Ayarlar sayfasına girip, Toplu Namaz Giriş butonuna basarak önceki uygulamada namaz sayılarını buraya ayrı ayrı yazıp kaydediniz. Oruç için toplu eklemek yerine tek tek eklemeniz gerekmektedir.</span>
+          </div>
+        </li>
+        <li>
+          <span class="num">3</span>
+          <div>
+            <strong>Artık kullanmaya başlayın!</strong>
+            <span>Sadece geçmiş kayıtlarınızı göremezsiniz ancak sayı olarak bir eksiğiniz olmaz.</span>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="paper helallik">
+      <h2>Helallik</h2>
+      <p>Eski uygulamadaki yaşadığınız yedekleme sorunları için sizlerden helallik dilerim. Kullandığımız Google Servislerinin ansızın ücretli olması ve uygulamadan bir kazancımızın olmaması sebebiyle bir müddet hizmet verememiştik. Bir sorunuz veya ihtiyacınız olursa uygulama içinden bize yazabilirsiniz. Dua bekleriz.</p>
+    </section>
+
+    <section class="paper">
+      <h2>Kazamatik’te ekstra neler var?</h2>
+      <ul class="features">
+        <li>Koyu tema</li>
+        <li>Kıble bulucu</li>
+        <li>Namaz vakitleri</li>
+        <li>İmsakiye</li>
+        <li>Ezan vakitlerinde bildirim</li>
+        <li>Kerahat vakitleri</li>
+        <li>Rozetler</li>
+        <li>Toplu namaz girişi</li>
+        <li>Şafii mezhebine göre kaza takibi</li>
+        <li>Yedekleme</li>
+      </ul>
+      <p class="note">Günlük namaz takibi sayfası karışıklığa sebep olduğu için şimdilik yok; ileride farklı bir şekilde eklenebilir. 
+      Yeterli ilgi olursa iPhone ve Huawei için de Kazamatik'i yayınlamayı planlıyoruz.</p>
+    </section>
+
+    <p style="text-align:center;margin-top:22px;">
+      <a class="cta" href="https://play.google.com/store/apps/details?id=com.mekitech.kazamatik">Kazamatik’i indir</a>
+    </p>
+
+    <footer>
+      Hayırlı olsun.
+    </footer>
+  </main>
+</body>
+</html>
